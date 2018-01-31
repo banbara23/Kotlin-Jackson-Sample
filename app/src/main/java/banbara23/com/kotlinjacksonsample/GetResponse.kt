@@ -2,6 +2,9 @@ package banbara23.com.kotlinjacksonsample
 
 import com.fasterxml.jackson.annotation.JsonProperty
 
+/**
+ * GETレスポンスのモデル
+ */
 data class GetResponse(
         @field:JsonProperty("card_type") val cardType: String = "",
         @field:JsonProperty("card_id") val cardId: String = ""
