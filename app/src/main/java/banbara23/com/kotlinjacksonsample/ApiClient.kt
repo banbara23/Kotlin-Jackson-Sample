@@ -1,6 +1,5 @@
 package banbara23.com.kotlinjacksonsample
 
-import com.fasterxml.jackson.databind.ObjectMapper
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -14,9 +13,9 @@ class ApiClient {
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl("https://try-now-kplvmhijbn.now.sh")
+                .baseUrl("https://try-now-dewfnfjpkq.now.sh/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(JacksonConverterFactory.create(ObjectMapper()))
+                .addConverterFactory(JacksonConverterFactory.create(JacksonHelper.createObjectMapper()))
                 .build()
         apiService = retrofit.create(ApiService::class.java)
     }
