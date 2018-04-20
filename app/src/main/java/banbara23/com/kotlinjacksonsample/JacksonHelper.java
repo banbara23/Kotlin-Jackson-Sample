@@ -1,24 +1,18 @@
 package banbara23.com.kotlinjacksonsample;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
-import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
 import com.fasterxml.jackson.module.kotlin.KotlinModule;
 
-import java.io.IOException;
-
-public class JacksonHelper1 {
+public class JacksonHelper {
 
     public static ObjectMapper createObjectMapper() {
 
         ObjectMapper objectMapper = new ObjectMapper().registerModule(new KotlinModule());
-//        ObjectMapper objectMapper = new ObjectMapper();
 
         // マッピング対象のクラスには存在しないフィールドを無視する
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -33,19 +27,7 @@ public class JacksonHelper1 {
                 .withIsGetterVisibility(JsonAutoDetect.Visibility.NONE);
 
         objectMapper.setVisibility(checker);
-//
-        DefaultSerializerProvider.Impl dsp = new DefaultSerializerProvider.Impl();
-        dsp.setNullValueSerializer(new NullValueSerializer());
-        objectMapper.setSerializerProvider(dsp);
-
+        objectMapper.configOverride(String.class).setSetterInfo((JsonSetter.Value.forValueNulls(Nulls.AS_EMPTY)));
         return objectMapper;
-    }
-
-    public static class NullValueSerializer extends JsonSerializer<Object> {
-        @Override
-        public void serialize(Object t, JsonGenerator jsonGenerator, SerializerProvider sp)
-                throws IOException, JsonProcessingException {
-            jsonGenerator.writeString("");
-        }
     }
 }

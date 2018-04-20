@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GetResponseJ {
     @JsonProperty("card_type")
-//    @JsonSetter(nulls = Nulls.AS_EMPTY)
-            String cardType;
+    String cardType;
 
     @JsonProperty("card_id")
     String cardId;

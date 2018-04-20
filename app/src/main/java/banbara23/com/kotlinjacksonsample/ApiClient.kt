@@ -16,7 +16,7 @@ class ApiClient {
                 .baseUrl("https://try-now-btbshmsmcr.now.sh") // null有り
 //                .baseUrl("https://try-now-maiiqgzyye.now.sh") // nullなし
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(JacksonConverterFactory.create(JacksonHelper4.createObjectMapper()))
+                .addConverterFactory(JacksonConverterFactory.create(JacksonHelper.createObjectMapper()))
                 .build()
         apiService = retrofit.create(ApiService::class.java)
     }

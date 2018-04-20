@@ -7,12 +7,10 @@ import com.fasterxml.jackson.annotation.JsonProperty
  */
 data class GetResponseK(
         @field:JsonProperty("card_type")
-//        @field:JsonSetter(nulls = Nulls.DEFAULT)
         val cardType: String? = "",
 
 
         @field:JsonProperty("card_id")
-//        @field:JsonSetter(nulls = Nulls.AS_EMPTY)
         val cardId: String? = ""
 
 ) : Response() {
