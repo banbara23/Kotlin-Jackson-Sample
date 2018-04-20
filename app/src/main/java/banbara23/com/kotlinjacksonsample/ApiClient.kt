@@ -13,9 +13,10 @@ class ApiClient {
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
-                .baseUrl("https://try-now-dewfnfjpkq.now.sh/")
+                .baseUrl("https://try-now-btbshmsmcr.now.sh") // null有り
+//                .baseUrl("https://try-now-maiiqgzyye.now.sh") // nullなし
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .addConverterFactory(JacksonConverterFactory.create(JacksonHelper.createObjectMapper()))
+                .addConverterFactory(JacksonConverterFactory.create(JacksonHelper4.createObjectMapper()))
                 .build()
         apiService = retrofit.create(ApiService::class.java)
     }
@@ -23,7 +24,7 @@ class ApiClient {
     /**
      * GET
      */
-    fun get(): Observable<GetResponse> =
+    fun get(): Observable<GetResponseJ> =
             apiService.get()
 
     /**

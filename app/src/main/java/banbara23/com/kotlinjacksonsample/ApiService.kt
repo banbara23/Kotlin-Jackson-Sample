@@ -9,5 +9,5 @@ interface ApiService {
     fun post(): Observable<PostResponse>
 
     @GET("/")
-    fun get(): Observable<GetResponse>
+    fun get(): Observable<GetResponseJ>
 }

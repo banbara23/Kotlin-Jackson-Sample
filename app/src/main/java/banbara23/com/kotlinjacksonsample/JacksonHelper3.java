@@ -9,12 +9,12 @@ import com.fasterxml.jackson.databind.ser.DefaultSerializerProvider;
 
 import java.io.IOException;
 
-public class JacksonObjectMapper {
+public class JacksonHelper3 {
     /** ObjectMapper */
     private ObjectMapper mapper;
 
     /** デフォルトコンストラクタ. */
-    public JacksonObjectMapper() {
+    public JacksonHelper3() {
         mapper = new ObjectMapper();
         DefaultSerializerProvider.Impl dsp = new DefaultSerializerProvider.Impl();
         dsp.setNullValueSerializer(new NullValueSerializer());

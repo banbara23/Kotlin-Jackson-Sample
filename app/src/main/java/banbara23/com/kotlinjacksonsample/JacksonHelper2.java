@@ -20,6 +20,7 @@ public class JacksonHelper2 {
         return om;
     }
 
+    //http://apieceofmycode.blogspot.jp/2015/05/json-jackson-custom-deserializer-to.html
     public static class NullHandlerDeserializer extends UntypedObjectDeserializer {
 
         private static final long serialVersionUID = 1L;

@@ -13,7 +13,7 @@ import com.fasterxml.jackson.module.kotlin.KotlinModule;
 
 import java.io.IOException;
 
-public class JacksonHelper {
+public class JacksonHelper1 {
 
     public static ObjectMapper createObjectMapper() {
 
